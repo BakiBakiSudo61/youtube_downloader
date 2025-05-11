@@ -33,11 +33,16 @@ h1, h2, h3, h4, h5, h6, p, li, .stMarkdown, .stText, .stAlert, .stMetricLabel, .
     text-align: center !important; /* !important で他のスタイルを上書き */
 }
 
+div.stButton > button {
+    display: block;
+    margin: 0 auto;
+}
+
+
 /* Streamlitの特定のウィジェット内のテキストも中央揃えにしたい場合、
    そのウィジェットが生成するHTML要素のクラス名を特定して追加する必要があります。
    例: ボタン内のテキストは通常中央揃えですが、他のカスタムコンポーネントなどは個別の対応が必要な場合があります。
 */
-
 </style>
 """, unsafe_allow_html=True)
 
