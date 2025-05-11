@@ -24,12 +24,15 @@ div.stButton > button {
     display: block;
     margin: 0 auto;
 }
+
+
 </style>
 """, unsafe_allow_html=True)
 
 # まずログインボタンを表示し、ユーザーにログインを促す
 if not st.user.is_logged_in: # ここでエラーが発生している可能性
     st.title("YouTube 動画ダウンローダー")
+    st.write("お好きなYouTube動画をダウンロードできます。まずはログインから")
     if st.button("ログイン"): # secrets.toml の [auth] セクションか、指定したプロバイダでログイン
         st.login() # st.login() にプロバイダ名を渡すことも可能
     st.stop() # ログインしていない場合は以降の処理を停止
