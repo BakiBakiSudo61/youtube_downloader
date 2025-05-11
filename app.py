@@ -18,22 +18,33 @@ def sanitize_filename(filename):
 # --- Streamlit UI ---
 st.set_page_config(page_title="YouTube Downloader", layout="centered") # ページの基本設定
 
+import streamlit as st
+
+# CSSでページ全体のテキストを中央揃えにする
 st.markdown("""
 <style>
-div.stButton > button {
-    display: block;
-    margin: 0 auto;
+/* ページ全体のコンテナ（main content area）に対して適用 */
+.main .block-container {
+    text-align: center;
 }
+
+/* もしくは、より広範に主要なテキスト要素に対して適用 */
+h1, h2, h3, h4, h5, h6, p, li, .stMarkdown, .stText, .stAlert, .stMetricLabel, .stMetricValue {
+    text-align: center !important; /* !important で他のスタイルを上書き */
+}
+
+/* Streamlitの特定のウィジェット内のテキストも中央揃えにしたい場合、
+   そのウィジェットが生成するHTML要素のクラス名を特定して追加する必要があります。
+   例: ボタン内のテキストは通常中央揃えですが、他のカスタムコンポーネントなどは個別の対応が必要な場合があります。
+*/
+
 </style>
 """, unsafe_allow_html=True)
-
-
-
 
 # まずログインボタンを表示し、ユーザーにログインを促す
 if not st.user.is_logged_in: # ここでエラーが発生している可能性
     # st.title() や st.header() の代わりに st.markdown を使用
-    st.markdown("<h1 style='text-align: center;'>YouTube 動画ダウンローダー</h1>", unsafe_allow_html=True)
+    st.title("YouTube 動画ダウンローダー")
     st.write("お好きなYouTube動画をダウンロードできます。まずはログインから")
     if st.button("ログイン"): # secrets.toml の [auth] セクションか、指定したプロバイダでログイン
         st.login() # st.login() にプロバイダ名を渡すことも可能
