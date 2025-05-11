@@ -24,10 +24,12 @@ div.stButton > button {
     display: block;
     margin: 0 auto;
 }
-
-
 </style>
 """, unsafe_allow_html=True)
+
+# st.title() や st.header() の代わりに st.markdown を使用
+st.markdown("<h1 style='text-align: center;'>中央揃えのタイトル</h1>", unsafe_allow_html=True)
+
 
 # まずログインボタンを表示し、ユーザーにログインを促す
 if not st.user.is_logged_in: # ここでエラーが発生している可能性
