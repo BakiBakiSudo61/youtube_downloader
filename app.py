@@ -16,6 +16,7 @@ def sanitize_filename(filename):
 
 # --- Streamlit UI ---
 st.set_page_config(page_title="YouTube Downloader", layout="centered") # ページの基本設定
+st.title("YouTube 動画ダウンローダー")
 
 # まずログインボタンを表示し、ユーザーにログインを促す
 if not st.user.is_logged_in: # ここでエラーが発生している可能性
