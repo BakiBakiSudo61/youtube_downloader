@@ -20,33 +20,10 @@ st.set_page_config(page_title="YouTube Downloader", layout="centered") # ペー�
 # 動画ファイルのURL（例: Streamlitが提供するサンプル動画）
 video_url = "static/10994871-hd_1080_1920_25fps.mp4"
 
-# CSSでページ全体のテキストを中央揃えにする
-st.markdown("""
+# CSSとHTMLをst.markdownで埋め込む
+page_bg_img_and_text_align_css = f"""
 <style>
-/* ページ全体のコンテナ（main content area）に対して適用 */
-.main .block-container {
-    text-align: center;
-}
-
-/* もしくは、より広範に主要なテキスト要素に対して適用 */
-h1, h2, h3, h4, h5, h6, p, li, .stMarkdown, .stText, .stAlert, .stMetricLabel, .stMetricValue {
-    text-align: center !important; /* !important で他のスタイルを上書き */
-}
-
-div.stButton > button {
-    display: block;
-    margin: 0 auto;
-}
-
-/* Streamlitの特定のウィジェット内のテキストも中央揃えにしたい場合、
-   そのウィジェットが生成するHTML要素のクラス名を特定して追加する必要があります。
-   例: ボタン内のテキストは通常中央揃えですが、他のカスタムコンポーネントなどは個別の対応が必要な場合があります。
-*/
-</style>
-""", unsafe_allow_html=True)
-
-video_html = f"""
-<style>
+/* --- 背景動画スタイル --- */
 #myVideo {{
     position: fixed; /* 画面に固定 */
     right: 0;
@@ -55,23 +32,54 @@ video_html = f"""
     min-height: 100%;
     z-index: -1; /* コンテンツの背面に配置 */
 }}
-/* オプション：コンテンツエリアの背景や文字色を設定 */
+
+/* Streamlitのメインアプリコンテナのデフォルト背景を透明にする */
 .stApp {{
-    background: transparent; /* Streamlitのデフォルト背景を透明にする */
+    background: transparent;
 }}
-.content {{ /* 必要であればコンテンツを囲むdiv要素を用意しスタイルを適用 */
-    position: relative; /* z-indexを有効にするため */
-    z-index: 1;
-    color: #f1f1f1; /* 文字色を明るくする（動画が暗い場合） */
-    /* background: rgba(0, 0, 0, 0.5); */ /* コンテンツエリアに半透明の背景を敷く場合 */
-    /* padding: 20px; */
+
+/* ヘッダーの背景も透明にする（任意） */
+.stApp > header {{
+    background-color: transparent;
 }}
+
+/* --- テキスト中央揃えスタイル --- */
+h1, h2, h3, h4, h5, h6, p, li, .stMarkdown, .stText, .stAlert, .stMetricLabel, .stMetricValue {{
+    text-align: center !important; /* !important で他のスタイルを上書き */
+}}
+
+/* ボタンを中央に配置したい場合 (st.columnsを使わない場合) */
+div.stButton > button {{
+    display: block;
+    margin: 0 auto;
+}}
+
+/* コンテンツエリアの可読性を上げるためのスタイル（任意） */
+/*
+.main .block-container {{
+    background-color: rgba(0, 0, 0, 0.3); /* 半透明の黒背景 */
+    padding: 2rem;
+    border-radius: 0.5rem;
+    color: white; /* 文字色を白に */
+}}
+*/
+/* 特定の要素だけ文字色を変える場合 */
+h1, h2, h3, h4, h5, h6 {{
+    color: #f0f2f6; /* 明るめの色 */
+}}
+p, li, .stMarkdown, .stText {{
+    color: #e0e0e0; /* やや明るめの色 */
+}}
+
 </style>
+
 <video autoplay muted loop id="myVideo">
   <source src="{video_url}" type="video/mp4">
-  Your browser does not support HTML5 video.
+  お使いのブラウザはHTML5 videoをサポートしていません。
 </video>
-st.markdown(video_html, unsafe_allow_html=True)
+"""
+
+st.markdown(page_bg_img_and_text_align_css, unsafe_allow_html=True)
 
 # まずログインボタンを表示し、ユーザーにログインを促す
 if not st.user.is_logged_in: # ここでエラーが発生している可能性
