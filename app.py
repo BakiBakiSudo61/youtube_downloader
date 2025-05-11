@@ -18,22 +18,22 @@ def sanitize_filename(filename):
 if not st.user.is_logged_in: # ここでエラーが発生している可能性
     
     
-# 3つの列を作成 (例: 左:中央:右 = 1:2:1 の比率)
-col1, col2, col3 = st.columns([1, 2, 1])
+    # 3つの列を作成 (例: 左:中央:右 = 1:2:1 の比率)
+    col1, col2, col3 = st.columns([1, 2, 1])
 
-with col1:
-    # 左側の列は空にするか、他の要素を配置
-    pass
+    with col1:
+        # 左側の列は空にするか、他の要素を配置
+        pass
 
-with col2:
-    # 中央の列にボタンを配置
-    if st.button("ログイン"): # secrets.toml の [auth] セクションか、指定したプロバイダでログイン
-    st.login() # st.login() にプロバイダ名を渡すことも可能
-st.stop() # ログインしていない場合は以降の処理を停止
+    with col2:
+        # 中央の列にボタンを配置
+        if st.button("ログイン"): # secrets.toml の [auth] セクションか、指定したプロバイダでログイン
+        st.login() # st.login() にプロバイダ名を渡すことも可能
+    st.stop() # ログインしていない場合は以降の処理を停止
 
-with col3:
-    # 右側の列は空にするか、他の要素を配置
-    pass
+    with col3:
+        # 右側の列は空にするか、他の要素を配置
+        pass
 
 # --- ここから下はログイン済みユーザー向けの処理 ---
 st.write(f"ようこそ、{st.user.name} さん！") # st.user.name などもログイン後でないと使えない
