@@ -14,6 +14,9 @@ def sanitize_filename(filename):
     # 長すぎるファイル名を短縮 (例: 200文字まで)
     return sanitized[:200]
 
+# --- Streamlit UI ---
+st.set_page_config(page_title="YouTube Downloader", layout="centered") # ページの基本設定
+
 # まずログインボタンを表示し、ユーザーにログインを促す
 if not st.user.is_logged_in: # ここでエラーが発生している可能性
     if st.button("ログイン"): # secrets.toml の [auth] セクションか、指定したプロバイダでログイン
@@ -22,9 +25,6 @@ if not st.user.is_logged_in: # ここでエラーが発生している可能性
 
 # --- ここから下はログイン済みユーザー向けの処理 ---
 st.write(f"ようこそ、{st.user.name} さん！") # st.user.name などもログイン後でないと使えない
-
-# --- Streamlit UI ---
-st.set_page_config(page_title="YouTube Downloader", layout="centered") # ページの基本設定
 
 st.title("YouTube 動画ダウンローダー")
 st.write("お好きなYouTube動画をダウンロードできます。URLを入力し、形式を選択してください。")
