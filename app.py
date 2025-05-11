@@ -35,7 +35,7 @@ with col3:
     # 右側の列は空にするか、他の要素を配置
     pass
     
-}
+
 </style>
 <button class="custom-button">カスタムボタン</button>
 """, unsafe_allow_html=True)
