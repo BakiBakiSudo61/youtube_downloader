@@ -27,13 +27,13 @@ div.stButton > button {
 </style>
 """, unsafe_allow_html=True)
 
-# st.title() や st.header() の代わりに st.markdown を使用
-st.markdown("<h1 style='text-align: center;'>中央揃えのタイトル</h1>", unsafe_allow_html=True)
+
 
 
 # まずログインボタンを表示し、ユーザーにログインを促す
 if not st.user.is_logged_in: # ここでエラーが発生している可能性
-    st.title("YouTube 動画ダウンローダー")
+    # st.title() や st.header() の代わりに st.markdown を使用
+    st.markdown("<h1 style='text-align: center;'>YouTube 動画ダウンローダー</h1>", unsafe_allow_html=True)
     st.write("お好きなYouTube動画をダウンロードできます。まずはログインから")
     if st.button("ログイン"): # secrets.toml の [auth] セクションか、指定したプロバイダでログイン
         st.login() # st.login() にプロバイダ名を渡すことも可能
