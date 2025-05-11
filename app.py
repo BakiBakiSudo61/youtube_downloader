@@ -18,7 +18,7 @@ def sanitize_filename(filename):
 # --- Streamlit UI ---
 st.set_page_config(page_title="YouTube Downloader", layout="centered") # ページの基本設定
 # 動画ファイルのURL（例: Streamlitが提供するサンプル動画）
-video_url = "static/14618955-uhd_2160_3840_24fps.mp4"
+video_url = "static/12421436_1280_720_30fps.mp4"
 
 # CSSとHTMLをst.markdownで埋め込む
 page_bg_img_and_text_align_css = f"""
