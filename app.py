@@ -14,6 +14,13 @@ def sanitize_filename(filename):
     # 長すぎるファイル名を短縮 (例: 200文字まで)
     return sanitized[:200]
 
+if not st.user.is_logged_in:
+    st.button("Googleでログイン", on_click=st.login)
+    st.stop()
+
+st.button("ログアウト", on_click=st.logout)
+st.markdown(f"ようこそ {st.user.name} さん！")
+
 # --- Streamlit UI ---
 st.set_page_config(page_title="YouTube Downloader", layout="centered") # ページの基本設定
 
