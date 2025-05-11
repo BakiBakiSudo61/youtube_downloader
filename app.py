@@ -34,11 +34,6 @@ st.stop() # ログインしていない場合は以降の処理を停止
 with col3:
     # 右側の列は空にするか、他の要素を配置
     pass
-    
-
-</style>
-<button class="custom-button">カスタムボタン</button>
-""", unsafe_allow_html=True)
 
 # --- ここから下はログイン済みユーザー向けの処理 ---
 st.write(f"ようこそ、{st.user.name} さん！") # st.user.name などもログイン後でないと使えない
