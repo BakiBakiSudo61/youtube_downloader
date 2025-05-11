@@ -38,6 +38,15 @@ div.stButton > button {
     margin: 0 auto;
 }
 
+/* Streamlitの特定のウィジェット内のテキストも中央揃えにしたい場合、
+   そのウィジェットが生成するHTML要素のクラス名を特定して追加する必要があります。
+   例: ボタン内のテキストは通常中央揃えですが、他のカスタムコンポーネントなどは個別の対応が必要な場合があります。
+*/
+</style>
+""", unsafe_allow_html=True)
+
+video_html = f"""
+<style>
 #myVideo {{
     position: fixed; /* 画面に固定 */
     right: 0;
@@ -46,13 +55,23 @@ div.stButton > button {
     min-height: 100%;
     z-index: -1; /* コンテンツの背面に配置 */
 }}
-
-/* Streamlitの特定のウィジェット内のテキストも中央揃えにしたい場合、
-   そのウィジェットが生成するHTML要素のクラス名を特定して追加する必要があります。
-   例: ボタン内のテキストは通常中央揃えですが、他のカスタムコンポーネントなどは個別の対応が必要な場合があります。
-*/
+/* オプション：コンテンツエリアの背景や文字色を設定 */
+.stApp {{
+    background: transparent; /* Streamlitのデフォルト背景を透明にする */
+}}
+.content {{ /* 必要であればコンテンツを囲むdiv要素を用意しスタイルを適用 */
+    position: relative; /* z-indexを有効にするため */
+    z-index: 1;
+    color: #f1f1f1; /* 文字色を明るくする（動画が暗い場合） */
+    /* background: rgba(0, 0, 0, 0.5); */ /* コンテンツエリアに半透明の背景を敷く場合 */
+    /* padding: 20px; */
+}}
 </style>
-""", unsafe_allow_html=True)
+<video autoplay muted loop id="myVideo">
+  <source src="{video_url}" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+st.markdown(video_html, unsafe_allow_html=True)
 
 # まずログインボタンを表示し、ユーザーにログインを促す
 if not st.user.is_logged_in: # ここでエラーが発生している可能性
