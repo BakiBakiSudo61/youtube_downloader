@@ -21,7 +21,6 @@ st.set_page_config(page_title="YouTube Downloader", layout="centered") # ペー�
 st.markdown("""
 <style>
 div.stButton > button {
-    display: block;
     margin: 0 auto;
 }
 </style>
