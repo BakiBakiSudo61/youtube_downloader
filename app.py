@@ -17,8 +17,8 @@ def sanitize_filename(filename):
 
 # --- Streamlit UI ---
 st.set_page_config(page_title="YouTube Downloader", layout="centered") # ページの基本設定
-
-import streamlit as st
+# 動画ファイルのURL（例: Streamlitが提供するサンプル動画）
+video_url = "https://static.streamlit.io/examples/star.mp4"
 
 # CSSでページ全体のテキストを中央揃えにする
 st.markdown("""
@@ -38,6 +38,14 @@ div.stButton > button {
     margin: 0 auto;
 }
 
+#myVideo {{
+    position: fixed; /* 画面に固定 */
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1; /* コンテンツの背面に配置 */
+}}
 
 /* Streamlitの特定のウィジェット内のテキストも中央揃えにしたい場合、
    そのウィジェットが生成するHTML要素のクラス名を特定して追加する必要があります。
