@@ -4,6 +4,19 @@ import tempfile # 一時ディレクトリを作成するために使用
 import os # ファイルパスの操作に使用
 import re # ファイル名を安全にするために使用
 
+st.markdown("""
+<style>
+div.stButton > button {
+    display: block;
+    margin: 0 auto;
+}
+</style>
+""", unsafe_allow_html=True)
+
+if st.button("中央のボタン（CSS）"):
+    st.write("CSSで中央揃えされたボタンがクリックされました！")
+
+
 # --- ヘルパー関数 ---
 def sanitize_filename(filename):
     """ファイル名として安全な文字列に変換する"""
