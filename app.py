@@ -19,6 +19,18 @@ if not st.user.is_logged_in: # ここでエラーが発生している可能性
     if st.button("ログイン"): # secrets.toml の [auth] セクションか、指定したプロバイダでログイン
         st.login() # st.login() にプロバイダ名を渡すことも可能
     st.stop() # ログインしていない場合は以降の処理を停止
+    
+st.markdown("""
+<style>
+.custom-button {
+   padding: 14px 20px;
+   margin: 8px 0;
+   border: none;
+   cursor: pointer;
+}
+</style>
+<button class="custom-button">カスタムボタン</button>
+""", unsafe_allow_html=True)
 
 # --- ここから下はログイン済みユーザー向けの処理 ---
 st.write(f"ようこそ、{st.user.name} さん！") # st.user.name などもログイン後でないと使えない
