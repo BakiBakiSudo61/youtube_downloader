@@ -17,7 +17,7 @@ def sanitize_filename(filename):
 # --- Streamlit UI ---
 st.set_page_config(page_title="YouTube Downloader", layout="centered") # ページの基本設定
 
-st.title("🎬 YouTube 動画ダウンローダー")
+st.title("YouTube 動画ダウンローダー")
 st.write("お好きなYouTube動画をダウンロードできます。URLを入力し、形式を選択してください。")
 
 # URL入力欄
