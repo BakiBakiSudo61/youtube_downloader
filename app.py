@@ -13,9 +13,6 @@ div.stButton > button {
 </style>
 """, unsafe_allow_html=True)
 
-if st.button("中央のボタン（CSS）"):
-    st.write("CSSで中央揃えされたボタンがクリックされました！")
-
 
 # --- ヘルパー関数 ---
 def sanitize_filename(filename):
