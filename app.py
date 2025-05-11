@@ -4,15 +4,6 @@ import tempfile # 一時ディレクトリを作成するために使用
 import os # ファイルパスの操作に使用
 import re # ファイル名を安全にするために使用
 
-st.markdown("""
-<style>
-div.stButton > button {
-    display: block;
-    margin: 0 auto;
-}
-</style>
-""", unsafe_allow_html=True)
-
 
 # --- ヘルパー関数 ---
 def sanitize_filename(filename):
@@ -26,6 +17,15 @@ def sanitize_filename(filename):
 
 # --- Streamlit UI ---
 st.set_page_config(page_title="YouTube Downloader", layout="centered") # ページの基本設定
+
+st.markdown("""
+<style>
+div.stButton > button {
+    display: block;
+    margin: 0 auto;
+}
+</style>
+""", unsafe_allow_html=True)
 
 # まずログインボタンを表示し、ユーザーにログインを促す
 if not st.user.is_logged_in: # ここでエラーが発生している可能性
