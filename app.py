@@ -19,7 +19,7 @@ def sanitize_filename(filename):
 st.set_page_config(page_title="YouTube Downloader", layout="centered") # ページの基本設定
 # CSSとHTMLをst.markdownで埋め込む
 st.markdown(
-    """
+    f"""
     <style>
     
     /* テキスト中央揃え */
