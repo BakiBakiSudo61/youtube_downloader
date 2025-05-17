@@ -21,22 +21,13 @@ st.set_page_config(page_title="YouTube Downloader", layout="centered") # ペー�
 st.markdown(
     """
     <style>
-    /* Streamlitのメインアプリコンテナのデフォルト背景を透明に */
-    .stApp {{
-        background: transparent;
-    }}
-
-    /* ヘッダーの背景も透明に */
-    .stApp > header {{
-        background-color: transparent;
-    }}
-
+    
     /* テキスト中央揃え */
     h1, h2, h3, h4, h5, h6, p, li, .stMarkdown, .stText, .stAlert, .stMetricLabel, .stMetricValue {{
         text-align: center !important; 
     }}
     
-    /* ボタンを中央に配置したい*/
+    /* ボタンを中央に配置 */
     div.stButton > button {{
         display: block;
         margin: 0 auto;
