@@ -18,8 +18,7 @@ def sanitize_filename(filename):
 # --- Streamlit UI ---
 st.set_page_config(page_title="YouTube Downloader", layout="centered") # ページの基本設定
 # CSSとHTMLをst.markdownで埋め込む
-st.markdown(
-    f"""
+st.markdown("""
     <style>
     
     /* テキスト中央揃え */
@@ -50,7 +49,7 @@ st.markdown(
     }}
 
     </style>
-    """)
+    """,unsafe_allow_html=True)
 
 # まずログインボタンを表示し、ユーザーにログインを促す
 if not st.user.is_logged_in: # ここでエラーが発生している可能性
