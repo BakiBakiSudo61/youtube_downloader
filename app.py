@@ -28,6 +28,10 @@ h1, h2, h3, h4, h5, h6, p, li, .stMarkdown, .stText, .stAlert, .stMetricLabel, .
     text-align: center !important; 
 }
 
+div.stButton > button {
+    display: block;
+    margin: 0 auto;
+}
 
 </style>
 """, unsafe_allow_html=True)
