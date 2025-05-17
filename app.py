@@ -51,7 +51,7 @@ st.markdown(
 
     </style>
     """)
-    st.markdown(unsafe_allow_html=True)
+st.markdown(unsafe_allow_html=True)
 
 # まずログインボタンを表示し、ユーザーにログインを促す
 if not st.user.is_logged_in: # ここでエラーが発生している可能性
