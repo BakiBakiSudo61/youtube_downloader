@@ -17,49 +17,45 @@ def sanitize_filename(filename):
 
 # --- Streamlit UI ---
 st.set_page_config(page_title="YouTube Downloader", layout="centered") # ページの基本設定
-# 動画ファイルのURL（例: Streamlitが提供するサンプル動画）
-video_url = "static/12421436_1280_720_30fps.mp4"
-
 # CSSとHTMLをst.markdownで埋め込む
 st.markdown(
     """
     <style>
-    /* Streamlitのメインアプリコンテナのデフォルト背景を透明にする */
+    /* Streamlitのメインアプリコンテナのデフォルト背景を透明に */
     .stApp {{
         background: transparent;
     }}
 
-    /* ヘッダーの背景も透明にする（任意） */
+    /* ヘッダーの背景も透明に */
     .stApp > header {{
         background-color: transparent;
     }}
 
-    /* --- テキスト中央揃えスタイル --- */
+    /* テキスト中央揃え */
     h1, h2, h3, h4, h5, h6, p, li, .stMarkdown, .stText, .stAlert, .stMetricLabel, .stMetricValue {{
-        text-align: center !important; /* !important で他のスタイルを上書き */
+        text-align: center !important; 
     }}
     
-    /* ボタンを中央に配置したい場合 (st.columnsを使わない場合) */
+    /* ボタンを中央に配置したい*/
     div.stButton > button {{
         display: block;
         margin: 0 auto;
+        
     }}
     
-    /* コンテンツエリアの可読性を上げるためのスタイル（任意） */
-    /*
     .main .block-container {{
-        background-color: rgba(0, 0, 0, 0.3); /* 半透明の黒背景 */
+        background-color: rgba(0, 0, 0, 0.3);
         padding: 2rem;
         border-radius: 0.5rem;
-        color: white; /* 文字色を白に */
+        color: white;
     }}
     */
-    /* 特定の要素だけ文字色を変える場合 */
+    /* 特定の要素だけ文字色を変える */
     h1, h2, h3, h4, h5, h6 {{
-    color: #f0f2f6; /* 明るめの色 */
+    color: #f0f2f6;
     }}
     p, li, .stMarkdown, .stText {{
-        color: #e0e0e0; /* やや明るめの色 */
+        color: #e0e0e0;
     }}
 
     </style>
@@ -76,7 +72,7 @@ if not st.user.is_logged_in: # ここでエラーが発生している可能性
         st.login() # st.login() にプロバイダ名を渡すことも可能
     st.stop() # ログインしていない場合は以降の処理を停止
 
-# --- ここから下はログイン済みユーザー向けの処理 ---
+#ここからログイン済みユーザー向けの処理
 st.write(f"ようこそ、{st.user.name} さん！") # st.user.name などもログイン後でないと使えない
 
 st.title("YouTube 動画ダウンローダー")
