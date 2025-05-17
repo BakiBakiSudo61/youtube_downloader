@@ -63,7 +63,7 @@ st.markdown(
     }}
 
     </style>
-    """
+    """,
     st.markdown(unsafe_allow_html=True)
 )
 
