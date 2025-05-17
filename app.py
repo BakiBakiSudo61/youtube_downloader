@@ -19,37 +19,35 @@ def sanitize_filename(filename):
 st.set_page_config(page_title="YouTube Downloader", layout="centered") # ページの基本設定
 # CSSとHTMLをst.markdownで埋め込む
 st.markdown("""
-    <style>
+<style>
+ 
+/* テキスト中央揃え */
+h1, h2, h3, h4, h5, h6, p, li, .stMarkdown, .stText, .stAlert, .stMetricLabel, .stMetricValue {{
+    text-align: center !important; 
+}}
     
-    /* テキスト中央揃え */
-    h1, h2, h3, h4, h5, h6, p, li, .stMarkdown, .stText, .stAlert, .stMetricLabel, .stMetricValue {{
-        text-align: center !important; 
-    }}
+/* ボタンを中央に配置 */
+div.stButton > button {{
+    display: block;
+    margin: 0 auto;
+}}
     
-    /* ボタンを中央に配置 */
-    div.stButton > button {{
-        display: block;
-        margin: 0 auto;
-        
-    }}
-    
-    .main .block-container {{
-        background-color: rgba(0, 0, 0, 0.3);
-        padding: 2rem;
-        border-radius: 0.5rem;
-        color: white;
-    }}
-    */
-    /* 特定の要素だけ文字色を変える */
-    h1, h2, h3, h4, h5, h6 {{
-    color: #f0f2f6;
-    }}
-    p, li, .stMarkdown, .stText {{
-        color: #e0e0e0;
-    }}
+.main .block-container {{
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    color: white;
+}}
+/* 特定の要素だけ文字色を変える */
+h1, h2, h3, h4, h5, h6 {{
+color: #f0f2f6;
+}}
+p, li, .stMarkdown, .stText {{
+    color: #e0e0e0;
+}}
 
-    </style>
-    """,unsafe_allow_html=True)
+</style>
+""",unsafe_allow_html=True)
 
 # まずログインボタンを表示し、ユーザーにログインを促す
 if not st.user.is_logged_in: # ここでエラーが発生している可能性
