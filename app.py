@@ -64,7 +64,7 @@ st.markdown(
 
     </style>
     """
-    unsafe_allow_html=True
+    st.markdown(unsafe_allow_html=True)
 )
 
 # まずログインボタンを表示し、ユーザーにログインを促す
